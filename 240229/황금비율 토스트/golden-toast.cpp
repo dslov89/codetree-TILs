@@ -16,11 +16,12 @@ int main() {
     }
     
     it = l.end();
-    for (int i=0;i<n;i++){
+    for (int i=0;i<m;i++){
         char k;
         cin>>k;
         if(k=='L'){
             it--;
+        
         }else if(k=='R'){
             it++;
         }else if(k=='D'){
