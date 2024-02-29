@@ -19,13 +19,12 @@ int main() {
     for (int i=0;i<m;i++){
         char k;
         cin>>k;
-        if(k=='L'){
+        if(k=='L'&&it!=l.begin()){
             it--;
-        
-        }else if(k=='R'){
+        }else if(k=='R'&&it!=l.end()){
             it++;
-        }else if(k=='D'){
-            l.erase(it);
+        }else if(k=='D'&&it!=l.end()){
+            it = l.erase(it);
         }else if(k=='P'){
             char h;
             cin>>h;
