@@ -18,16 +18,17 @@ void Choose(int cnt){
         if(total>maxN){
             maxN=total;
         }
+       
         return ; 
     }
 
-    for (int i=v[cnt];i<v[cnt+1];i++){
+    for (int i=v[cnt*2]-1;i<v[cnt*2+1];i++){
         arr[i]++;
     }
     total++;
     Choose(cnt+1);
     total--;
-    for (int i=v[cnt];i<v[cnt+1];i++){
+    for (int i=v[cnt*2]-1;i<v[cnt*2+1];i++){
         arr[i]--;
     }
 
@@ -46,5 +47,6 @@ int main() {
     }
     Choose(0);
     cout<<maxN;
+    
     return 0;
 }
