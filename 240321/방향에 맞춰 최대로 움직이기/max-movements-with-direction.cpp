@@ -3,15 +3,15 @@
 using namespace std;
 
 int n;
-int arr[3][3];
-int dir[3][3];
+int arr[4][4];
+int dir[4][4];
 int r,c;
 int dirX[9]={0,0,1,1,1,0,-1,-1,-1};
 int dirY[9]={0,-1,-1,0,1,1,1,0,-1};
 int maxN=0;
 
 bool isOkay(int x,int y){
-    if(x>=0&&x<3&&y>=0&&y<3) return true;
+    if(x>=0&&x<n&&y>=0&&y<n) return true;
     return false;
 }
 
@@ -45,13 +45,13 @@ void Choose(int cnt){
 
 int main() {
     cin>>n;
-    for (int i=0;i<3;i++){
-        for (int j=0;j<3;j++){
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n;j++){
             cin>>arr[i][j];
         }
     }
-    for (int i=0;i<3;i++){
-        for (int j=0;j<3;j++){
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n;j++){
             cin>>dir[i][j];
         }
     }
