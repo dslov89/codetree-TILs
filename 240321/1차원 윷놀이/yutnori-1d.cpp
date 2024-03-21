@@ -23,11 +23,11 @@ void Choose(int cnt){
     }
 
     for (int j=0;j<k;j++){
-        if(arr[j]<m){
+        //if(arr[j]<m){
             arr[j] += v[cnt];
             Choose(cnt+1);
             arr[j] -= v[cnt];
-        }
+        //}
     }
 }
 
