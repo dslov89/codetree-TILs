@@ -5,7 +5,7 @@ using namespace std;
 
 int n;
 vector<int> v;
-int arr[9]={};
+bool arr[9]={};
 
 void Choose(int cnt){
     if(cnt==n){
@@ -17,11 +17,11 @@ void Choose(int cnt){
     }
 
     for (int i=1;i<=n;i++){
-        if(arr[i]==1) continue;
+        if(arr[i]) continue;
         v.push_back(i);
-        arr[i]=1;
+        arr[i]=true;
         Choose(cnt+1);
-        arr[i]=0;
+        arr[i]=false;
         v.pop_back();
     }
 }
