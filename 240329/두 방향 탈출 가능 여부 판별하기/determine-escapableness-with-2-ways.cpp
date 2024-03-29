@@ -13,7 +13,7 @@ int dy[2]={1,0};
 int answer = 0;
 
 bool CanGo(int x,int y){
-    if((x>=0&&x<n&&y>=0&&y<m)&&arr[x][y]){
+    if((x>=0&&x<n&&y>=0&&y<m)&&arr[x][y]&&!visit[x][y]){
       return true;
     }
     return false;
