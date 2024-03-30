@@ -39,7 +39,7 @@ int main() {
     }
 
     int maxAns=0;
-    int ansK;
+    int ansK=1;
     for (int k=1;k<=100;k++){
         int answer=0;
         for (int i=0;i<n;i++){
