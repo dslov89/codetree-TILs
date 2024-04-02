@@ -50,6 +50,7 @@ int main() {
         r--;
         c--;
         q.push(make_pair(r,c));
+        visit[r][c]=1;
         BFS();
     }
     int answer=0;
