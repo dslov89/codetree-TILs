@@ -31,7 +31,8 @@ bool zeroEffect(){
             int y1 = y+dy[i];
 
             if(CanGo(x1,y1)){
-                if(x1==cnt||x1==(n-cnt-1)||y1==cnt||y1==(m-cnt-1)) return true;
+                //cout<<"1의 위치"<<x<<" "<<y<<endl<<x1<<" "<<y1<<endl;
+                if(x1<=cnt||x1>=(n-cnt-1)||y1<=cnt||y1>=(m-cnt-1)) return true;
                 zeroQ.push(make_pair(x1,y1));
                 visit[x1][y1]=true;
             }
@@ -41,7 +42,7 @@ bool zeroEffect(){
 }
 
 bool isDelete(int x, int y){
-    if(x==cnt||x==(n-cnt-1)||y==cnt||y==(m-cnt-1)){
+    if(x<=cnt||x>=(n-cnt-1)||y<=cnt||y>=(m-cnt-1)){
         return true;
     }
     zeroQ.push(make_pair(x,y));
@@ -84,9 +85,11 @@ int main() {
     while(true){
         ans = oneQ.size();
         BFS();
+        // cout<<endl;
         cnt++;
-        while(delOne.empty()){
+        while(!delOne.empty()){
             arr[delOne.front().first][delOne.front().second]=0;
+            //cout<<(int)delOne.front().first<<" ";
             delOne.pop();
         }
         for(int i=(cnt+1);i<(n-cnt-1);i++){
