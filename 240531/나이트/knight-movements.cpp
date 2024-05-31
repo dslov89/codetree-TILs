@@ -10,7 +10,7 @@ int n;
 int fr,fc,lr,lc;
 
 bool CanGo(int x,int y){
-    return (x>=0&&x<n&&y>=0&&y<n);
+    return (x>=0&&x<n&&y>=0&&y<n)&&!visit[x][y];
 }
 
 void Push(int x, int y ,int s){
