@@ -47,60 +47,85 @@ void BFS(){
 
 int main() {
     cin>>n>>h>>m;
-    vector<pair<int,int>> v;
-    int ans[n][n]={};
+   // vector<pair<int,int>> v;
+    //int ans[n][n]={};
     for (int i=0;i<n;i++){
         for (int j=0;j<n;j++){
             cin>>arr[i][j];
-            if(arr[i][j]==2){
-                v.push_back(make_pair(i,j));
-            }
+            // if(arr[i][j]==2){
+            //     v.push_back(make_pair(i,j));
+            // }
             if(arr[i][j]==3){
                 space.push_back(make_pair(i,j));
             }
         }
     }
 
-    for (int i=0;i<h;i++){
-        //그 전에 visit,step 초기화 해줘야 할듯 
-        // visit[101][101]={};
-        // step[101][101]={};
-
-         for (int i=0;i<n;i++){
-            for (int j=0;j<n;j++){
-                //cout<<step[i][j]<<" ";
-                step[i][j]=0;
-                visit[i][j]=false;
-            }
-           // cout<<endl;
-        }
-        //cout<<endl;
-        Push(v[i].first,v[i].second,0);
-        BFS();
-
-       
-
-        int minN = INT_MAX;
-        for(int i=0;i<m;i++){
-            int k = step[space[i].first][space[i].second];
-            //cout<<k<<endl;
-            if(k>0&&k<minN){
-                minN=k;
-                
-            }
-        }
-        if(minN==INT_MAX){
-            minN = -1;
-        }
-        ans[v[i].first][v[i].second]=minN;
+    for (int i=0;i<m;i++){
+        Push(space[i].first,space[i].second,0);
     }
+
+    BFS();
 
     for (int i=0;i<n;i++){
         for (int j=0;j<n;j++){
-            cout<<ans[i][j]<<" ";
+            if(arr[i][j]==2){
+                if(visit[i][j]){
+                    cout<<step[i][j]<<" ";
+                }
+                else{
+                    cout<<-1<<" ";
+                }
+            }
+            else{
+                cout<<0<<" ";
+            }
         }
         cout<<endl;
     }
+
+
+    // for (int i=0;i<h;i++){
+    //     //그 전에 visit,step 초기화 해줘야 할듯 
+    //     // visit[101][101]={};
+    //     // step[101][101]={};
+
+    //      for (int i=0;i<n;i++){
+    //         for (int j=0;j<n;j++){
+    //             //cout<<step[i][j]<<" ";
+    //             step[i][j]=0;
+    //             visit[i][j]=false;
+    //         }
+    //        // cout<<endl;
+    //     }
+    //     //cout<<endl;
+    //     Push(v[i].first,v[i].second,0);
+    //     BFS();
+
+       
+
+    //     int minN = INT_MAX;
+    //     for(int i=0;i<m;i++){
+    //         int k = step[space[i].first][space[i].second];
+    //         //cout<<k<<endl;
+    //         if(k>0&&k<minN){
+    //             minN=k;
+                
+    //         }
+    //     }
+    //     if(minN==INT_MAX){
+    //         minN = -1;
+    //     }
+    //     ans[v[i].first][v[i].second]=minN;
+    // }
+
+    // for (int i=0;i<n;i++){
+    //     for (int j=0;j<n;j++){
+    //         cout<<ans[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+
 
     
     return 0;
