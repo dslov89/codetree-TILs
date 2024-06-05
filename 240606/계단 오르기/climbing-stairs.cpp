@@ -4,24 +4,21 @@ using namespace std;
 
 int n;
 int total=0;
+int dp[1004]={};
 
-void Stair(int k){
-    if(k==n){
-        total++;
-        return ;
-    }
-    else if(k>n) return ;
-    
-    Stair(k+2);
-
-    Stair(k+3);
-}
 
 int main() {
     cin>>n;
 
-    Stair(0);
+    dp[0]=1;
+    dp[1]=0;
+    dp[2]=1;
+    dp[3]=1;
+    
+    for (int i=4;i<=n;i++){
+        dp[i]=(dp[i-2]+dp[i-3])%10007;
+    }
 
-    cout<<total;
+    cout<<dp[n];
     return 0;
 }
