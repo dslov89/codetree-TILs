@@ -9,7 +9,7 @@ int DP(int x,int y){
     if(x>=0&&x<n&&y>=0&&y<n){
         return dp[x][y];
     }
-    return 1000000;
+    return 100000000;
 }
 
 int main() {
@@ -18,9 +18,10 @@ int main() {
     for (int i=0;i<n;i++){
         for (int j=0;j<n;j++){
             cin>>arr[i][j];
-            dp[i][j]=arr[i][j];
         }
     }
+
+    dp[0][n-1]=arr[0][n-1];
 
     for (int i=0;i<n;i++){
         for (int j=n-1;j>=0;j--){
